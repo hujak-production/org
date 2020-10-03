@@ -18,7 +18,7 @@ namespace Server.Model
 
             CreateMap<Employee, EmployeeDto>()
                 .ForMember(dest => dest.Id,
-                           opt => opt.MapFrom(c => c.CompanyId));
+                           opt => opt.MapFrom(e => e.EmployeeId));
 
             CreateMap<EmployeeDto, Employee>()
                 .ForMember(dest => dest.CompanyId,
