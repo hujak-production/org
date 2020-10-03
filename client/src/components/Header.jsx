@@ -3,7 +3,8 @@ import {
   AppBar,
   IconButton,
   Toolbar,
-  Typography
+  Typography,
+  LinearProgress
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Menu } from '@material-ui/icons';
@@ -43,6 +44,9 @@ const Header = (props) => {
           <Menu />
         </IconButton>
       </Toolbar>
+      {
+        props.loading ? <LinearProgress color='primary'/> : null
+      }
     </AppBar>
   );
 };

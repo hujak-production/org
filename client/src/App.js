@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%'
   },
   content: {
-    padding: 15,
+    padding: 50,
   }
 }));
 
@@ -38,6 +38,7 @@ const App = () => {
 
   const [data, setData] = useState(null);
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
 
   /**
    * Fetch companies data from server.
@@ -46,6 +47,7 @@ const App = () => {
     axios.get('https://192.168.0.220:44316/company')
       .then((response) => {
         setData(response.data);
+        setLoading(false);
         console.log(response.data);
       })
       .catch((error) => {
@@ -56,12 +58,14 @@ const App = () => {
   return (
     <Router history={ history }>
       <Container className={classes.container} fixed>
-        <Header open={open} setOpen={setOpen}/>
+        <Header open={open} setOpen={setOpen} loading={loading}/>
         <Sidebar open={open} setOpen={setOpen} companies={data} history={history}/>
         <Box className={classes.content}>
           <Switch>
             <Route exact path='/' component={ Home }/>
-            <Route exact path='/company/:id' component={ Company }/>
+            <Route exact path='/company/:id'>
+              <Company companies={data}/>
+            </Route>
           </Switch>
         </Box>
       </Container>
