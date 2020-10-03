@@ -16,7 +16,7 @@ namespace Server
 {
     public class Startup
     {
-        private string reactSpecificOrigion = "ReactSpecificOrigions";
+        private readonly string reactSpecificOrigion = "ReactSpecificOrigions";
 
         public Startup(IConfiguration configuration)
         {
