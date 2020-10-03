@@ -31,6 +31,18 @@ namespace Server.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IEnumerable<CompanyDto> Index()
+        {
+            var companies = _context.Companies
+                .Include(company => company.Employees);
+
+            var compaiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
+
+            return compaiesDto;
+        }
+
         [HttpPost("Create")]
         public async Task<ActionResult<object>> Create([FromBody] CompanyDto companyDto)
         {
@@ -49,7 +61,7 @@ namespace Server.Controllers
         [HttpPost("Search")]
         public ActionResult<object> Search(SearchCondition condition)
         {
-            var companies = _service.Search(condition,  _context.Companies);
+            var companies = _service.Search(condition, _context.Companies);
 
             _logger.LogInformation("Companies with ID:{0} have been found.",
                 companies.Select(c => $"{c.CompanyId}"));
