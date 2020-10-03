@@ -7,6 +7,8 @@ namespace Server.Model.DTO
 {
     public class EmployeeDto
     {
+        public long Id { get; set; }
+
         [Required, StringLength(50)]
         public string FirstName { get; set; }
 

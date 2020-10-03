@@ -8,11 +8,21 @@ namespace Server.Model
     {
         public MappingProfile()
         {
-            CreateMap<Company, CompanyDto>();
-            CreateMap<CompanyDto, Company>();
+            CreateMap<Company, CompanyDto>()
+                .ForMember(dest => dest.Id,
+                           opt => opt.MapFrom(c => c.CompanyId));
 
-            CreateMap<Employee, EmployeeDto>();
-            CreateMap<EmployeeDto, Employee>();
+            CreateMap<CompanyDto, Company>()
+                .ForMember(dest => dest.CompanyId,
+                           opt => opt.Ignore());
+
+            CreateMap<Employee, EmployeeDto>()
+                .ForMember(dest => dest.Id,
+                           opt => opt.MapFrom(c => c.CompanyId));
+
+            CreateMap<EmployeeDto, Employee>()
+                .ForMember(dest => dest.CompanyId,
+                           opt => opt.Ignore());
         }
     }
 }
