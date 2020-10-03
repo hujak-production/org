@@ -1,7 +1,9 @@
-﻿using Server.Infrastructure.CustomDataAnnotations;
+﻿using Newtonsoft.Json.Converters;
+using Server.Infrastructure.CustomDataAnnotations;
 using Server.Model.Data;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Server.Model.DTO
 {

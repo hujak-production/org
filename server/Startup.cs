@@ -57,6 +57,9 @@ namespace Server
             services.AddAutoMapper(options => 
                 options.AddProfile(new MappingProfile()));
 
+            services.AddSwaggerGen();
+            services.AddSwaggerGenNewtonsoftSupport();
+
             services.AddSingleton<ICompanyService, CompanyService>();
             services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
             services.AddScoped<IUserService, UserService>();
@@ -72,10 +75,17 @@ namespace Server
 
             app.UseHttpsRedirection();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(setup =>
+            {
+                setup.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+            });
+
             app.UseRouting();
 
             app.UseCors(reactSpecificOrigion);
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

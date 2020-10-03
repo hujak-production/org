@@ -1,4 +1,5 @@
-﻿using Server.Infrastructure.CustomDataAnnotations;
+﻿using Newtonsoft.Json;
+using Server.Infrastructure.CustomDataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
