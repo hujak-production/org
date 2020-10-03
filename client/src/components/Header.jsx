@@ -21,9 +21,7 @@ const Header = (props) => {
   return (
     <AppBar position='static'>
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6">
-          Hujak ORG
-        </Typography>
+        <Typography variant="h6">Hujak ORG</Typography>
         <IconButton
           edge="end"
           color="inherit"
