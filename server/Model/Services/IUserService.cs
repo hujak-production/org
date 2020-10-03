@@ -1,4 +1,4 @@
-﻿namespace server.Model.Services
+﻿namespace Server.Model.Services
 {
     public interface IUserService
     {

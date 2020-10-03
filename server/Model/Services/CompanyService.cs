@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using server.Model.Data;
-using server.Model.DTO;
+using Server.Model.Data;
+using Server.Model.DTO;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace server.Model.Services
+namespace Server.Model.Services
 {
     public class CompanyService : ICompanyService
     {

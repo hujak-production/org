@@ -1,4 +1,4 @@
-﻿namespace server.Model.Data
+﻿namespace Server.Model.Data
 {
     public enum JobTitle
     {

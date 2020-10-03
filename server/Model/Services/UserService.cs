@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using server.Model.Data;
+using Server.Model.Data;
 using System.Linq;
 
-namespace server.Model.Services
+namespace Server.Model.Services
 {
     public class UserService : IUserService
     {

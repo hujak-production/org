@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace server.Infrastructure.CustomDataAnnotations
+namespace Server.Infrastructure.CustomDataAnnotations
 {
     public class DateInPastAttribute : RangeAttribute
     {

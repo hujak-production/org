@@ -5,13 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Converters;
-using server.Model.Data;
-using server.Model.Services;
+using Server.Model.Data;
+using Server.Model.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using server.Model;
+using Server.Model;
 
-namespace server
+namespace Server
 {
     public class Startup
     {

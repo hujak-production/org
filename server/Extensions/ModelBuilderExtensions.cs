@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using server.Model.Data;
+using Server.Model.Data;
 
-namespace server.Extensions
+namespace Server.Extensions
 {
     public static class ModelBuilderExtensions
     {

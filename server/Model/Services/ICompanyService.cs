@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using server.Model.Data;
-using server.Model.DTO;
+using Server.Model.Data;
+using Server.Model.DTO;
 
-namespace server.Model.Services
+namespace Server.Model.Services
 {
     public interface ICompanyService
     {

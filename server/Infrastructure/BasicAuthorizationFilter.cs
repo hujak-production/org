@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using server.Model.Services;
+using Server.Model.Services;
 using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace server.Infrastructure
+namespace Server.Infrastructure
 {
     public class BasicAuthorizationFilter : IAuthorizationFilter
     {

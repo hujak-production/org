@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using server.Model.Data;
+using Server.Model.Data;
 
-namespace server.Model.DTO
+namespace Server.Model.DTO
 {
     public class SearchCondition
     {

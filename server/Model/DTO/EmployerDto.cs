@@ -1,9 +1,9 @@
-﻿using server.Infrastructure.CustomDataAnnotations;
-using server.Model.Data;
+﻿using Server.Infrastructure.CustomDataAnnotations;
+using Server.Model.Data;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace server.Model.DTO
+namespace Server.Model.DTO
 {
     public class EmployerDto
     {

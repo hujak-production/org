@@ -1,8 +1,8 @@
-﻿using server.Infrastructure.CustomDataAnnotations;
+﻿using Server.Infrastructure.CustomDataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace server.Model.DTO
+namespace Server.Model.DTO
 {
     public class CompanyDto
     {

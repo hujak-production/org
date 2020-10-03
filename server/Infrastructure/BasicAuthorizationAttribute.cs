@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace server.Infrastructure
+namespace Server.Infrastructure
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     public class BasicAuthorizationAttribute : TypeFilterAttribute

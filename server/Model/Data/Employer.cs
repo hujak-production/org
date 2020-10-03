@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace server.Model.Data
+namespace Server.Model.Data
 {
     public class Employer
     {

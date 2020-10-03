@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using server.Infrastructure;
-using server.Model.Data;
-using server.Model.DTO;
-using server.Model.Services;
+using Server.Infrastructure;
+using Server.Model.Data;
+using Server.Model.DTO;
+using Server.Model.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace server.Controllers
+namespace Server.Controllers
 {
     [ApiController]
     [BasicAuthorization]

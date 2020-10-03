@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using server.Extensions;
+using Server.Extensions;
 
-namespace server.Model.Data
+namespace Server.Model.Data
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {

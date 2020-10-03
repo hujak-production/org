@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using server.Model.Data;
-using server.Model.DTO;
+using Server.Model.Data;
+using Server.Model.DTO;
 
-namespace server.Model
+namespace Server.Model
 {
     public class MappingProfile : Profile
     {

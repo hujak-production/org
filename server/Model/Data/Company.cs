@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace server.Model.Data
+namespace Server.Model.Data
 {
     public class Company
     {
