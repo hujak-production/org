@@ -28,8 +28,6 @@ namespace Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var clientIp = Configuration.GetSection("ClientIP").GetChildren().Select(x => x.Value).ToArray();
-
             services.AddCors(options =>
             {
                 options.AddPolicy(name: reactSpecificOrigion,
