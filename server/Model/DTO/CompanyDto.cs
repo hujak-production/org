@@ -13,6 +13,6 @@ namespace Server.Model.DTO
         public int EstablishmentYear { get; set; }
 
         [Required, MinLength(0)]
-        public ICollection<EmployerDto> Employees { get; set; }
+        public ICollection<EmployeeDto> Employees { get; set; }
     }
 }

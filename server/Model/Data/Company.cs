@@ -7,6 +7,6 @@ namespace Server.Model.Data
         public long CompanyId { get; set; }
         public string Name { get; set; }
         public int EstablishmentYear { get; set; }
-        public ICollection<Employer> Employees { get; set; }
+        public ICollection<Employee> Employees { get; set; }
     }
 }

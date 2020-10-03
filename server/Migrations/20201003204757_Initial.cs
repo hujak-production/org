@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Server.Migrations
+namespace server.Migrations
 {
     public partial class Initial : Migration
     {
@@ -167,10 +167,10 @@ namespace Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employers",
+                name: "Employees",
                 columns: table => new
                 {
-                    EmployerId = table.Column<long>(nullable: false)
+                    EmployeeId = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyId = table.Column<long>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
@@ -180,9 +180,9 @@ namespace Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employers", x => x.EmployerId);
+                    table.PrimaryKey("PK_Employees", x => x.EmployeeId);
                     table.ForeignKey(
-                        name: "FK_Employers_Companies_CompanyId",
+                        name: "FK_Employees_Companies_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Companies",
                         principalColumn: "CompanyId",
@@ -192,7 +192,7 @@ namespace Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "fefd4010-2bf2-49e5-af8f-6d5ededc8f33", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEHxC7oDrzOlNsCxGf4n5owDK1po8BYHE/Ew8SSa4li5FaABgKikg+EsAz8MpsEuoxw==", null, false, "719872fc-9a02-4ab9-a1e3-8c74c86c2667", false, "Admin" });
+                values: new object[] { "1", 0, "be14e747-6d3e-4553-8270-6a0e0d1d2bf4", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAENJpxf5jYybYHMHgT3srnAzCyMgekJ5Vm/Mlgwf+9YkEjBhX/cUZyzj84CJaGiSjcQ==", null, false, "8671e249-08db-4aa3-ba57-635cc5a897f6", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Companies",
@@ -205,8 +205,8 @@ namespace Server.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Employers",
-                columns: new[] { "EmployerId", "CompanyId", "DateOfBirth", "FirstName", "JobTitle", "LastName" },
+                table: "Employees",
+                columns: new[] { "EmployeeId", "CompanyId", "DateOfBirth", "FirstName", "JobTitle", "LastName" },
                 values: new object[,]
                 {
                     { 1L, 1L, new DateTime(1998, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dmytro", "Developer", "Lynda" },
@@ -258,8 +258,8 @@ namespace Server.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employers_CompanyId",
-                table: "Employers",
+                name: "IX_Employees_CompanyId",
+                table: "Employees",
                 column: "CompanyId");
         }
 
@@ -281,7 +281,7 @@ namespace Server.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Employers");
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Server.Model.DTO
 {
-    public class EmployerDto
+    public class EmployeeDto
     {
         [Required, StringLength(50)]
         public string FirstName { get; set; }

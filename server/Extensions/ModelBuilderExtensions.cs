@@ -38,29 +38,29 @@ namespace Server.Extensions
                     EstablishmentYear = 2004
                 });
 
-            builder.Entity<Employer>().HasData(
+            builder.Entity<Employee>().HasData(
                 //Pumox employees
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 1,
+                    EmployeeId = 1,
                     CompanyId = 1,
                     FirstName = "Dmytro",
                     LastName = "Lynda",
                     DateOfBirth = DateTime.Parse("06.08.1998"),
                     JobTitle = JobTitle.Developer
                 },
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 2,
+                    EmployeeId = 2,
                     CompanyId = 1,
                     FirstName = "Piotr",
                     LastName = "Kowalski",
                     DateOfBirth = DateTime.Parse("17.03.1990"),
                     JobTitle = JobTitle.Administrator
                 },
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 3,
+                    EmployeeId = 3,
                     CompanyId = 1,
                     FirstName = "Jakub",
                     LastName = "Kosmalski",
@@ -69,18 +69,18 @@ namespace Server.Extensions
                 },
                 
                 //Intel employees
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 4,
+                    EmployeeId = 4,
                     CompanyId = 2,
                     FirstName = "Grzegorz",
                     LastName = "Słowiński",
                     DateOfBirth = DateTime.Parse("12.07.1987"),
                     JobTitle = JobTitle.Manager
                 },
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 5,
+                    EmployeeId = 5,
                     CompanyId = 2,
                     FirstName = "Grzegorz",
                     LastName = "Kowalski",
@@ -89,18 +89,18 @@ namespace Server.Extensions
                 },
 
                 //Nvidia employees
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 6,
+                    EmployeeId = 6,
                     CompanyId = 3,
                     FirstName = "Jarosław",
                     LastName = "Łojko",
                     DateOfBirth = DateTime.Parse("02.09.1996"),
                     JobTitle = JobTitle.Administrator
                 },
-                new Employer()
+                new Employee()
                 {
-                    EmployerId = 7,
+                    EmployeeId = 7,
                     CompanyId = 3,
                     FirstName = "Tomasz",
                     LastName = "Stefaniszyn",

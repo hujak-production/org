@@ -11,8 +11,8 @@ namespace Server.Model
             CreateMap<Company, CompanyDto>();
             CreateMap<CompanyDto, Company>();
 
-            CreateMap<Employer, EmployerDto>();
-            CreateMap<EmployerDto, Employer>();
+            CreateMap<Employee, EmployeeDto>();
+            CreateMap<EmployeeDto, Employee>();
         }
     }
 }

@@ -78,9 +78,9 @@ namespace Server.Model.Services
             updatedEntry.Name = update.Name;
             updatedEntry.EstablishmentYear = update.EstablishmentYear;
             updatedEntry.Employees = updatedEntry.Employees.Zip(update.Employees,
-                (first, second) => new Employer()
+                (first, second) => new Employee()
                 {
-                    EmployerId = first.EmployerId,
+                    EmployeeId = first.EmployeeId,
                     CompanyId = first.CompanyId,
                     FirstName = second.FirstName,
                     LastName = second.LastName,

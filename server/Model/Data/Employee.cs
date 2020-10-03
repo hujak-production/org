@@ -2,9 +2,9 @@
 
 namespace Server.Model.Data
 {
-    public class Employer
+    public class Employee
     {
-        public long EmployerId { get; set; }
+        public long EmployeeId { get; set; }
         public long CompanyId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

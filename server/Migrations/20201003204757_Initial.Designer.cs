@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server.Model.Data;
 
-namespace Server.Migrations
+namespace server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200911113919_Initial")]
+    [Migration("20201003204757_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -152,7 +152,7 @@ namespace Server.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("server.Model.Data.Company", b =>
+            modelBuilder.Entity("Server.Model.Data.Company", b =>
                 {
                     b.Property<long>("CompanyId")
                         .ValueGeneratedOnAdd()
@@ -190,9 +190,9 @@ namespace Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("server.Model.Data.Employer", b =>
+            modelBuilder.Entity("Server.Model.Data.Employee", b =>
                 {
-                    b.Property<long>("EmployerId")
+                    b.Property<long>("EmployeeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -213,16 +213,16 @@ namespace Server.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployerId");
+                    b.HasKey("EmployeeId");
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Employers");
+                    b.ToTable("Employees");
 
                     b.HasData(
                         new
                         {
-                            EmployerId = 1L,
+                            EmployeeId = 1L,
                             CompanyId = 1L,
                             DateOfBirth = new DateTime(1998, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Dmytro",
@@ -231,7 +231,7 @@ namespace Server.Migrations
                         },
                         new
                         {
-                            EmployerId = 2L,
+                            EmployeeId = 2L,
                             CompanyId = 1L,
                             DateOfBirth = new DateTime(1990, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Piotr",
@@ -240,7 +240,7 @@ namespace Server.Migrations
                         },
                         new
                         {
-                            EmployerId = 3L,
+                            EmployeeId = 3L,
                             CompanyId = 1L,
                             DateOfBirth = new DateTime(1990, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Jakub",
@@ -249,7 +249,7 @@ namespace Server.Migrations
                         },
                         new
                         {
-                            EmployerId = 4L,
+                            EmployeeId = 4L,
                             CompanyId = 2L,
                             DateOfBirth = new DateTime(1987, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Grzegorz",
@@ -258,7 +258,7 @@ namespace Server.Migrations
                         },
                         new
                         {
-                            EmployerId = 5L,
+                            EmployeeId = 5L,
                             CompanyId = 2L,
                             DateOfBirth = new DateTime(1994, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Grzegorz",
@@ -267,7 +267,7 @@ namespace Server.Migrations
                         },
                         new
                         {
-                            EmployerId = 6L,
+                            EmployeeId = 6L,
                             CompanyId = 3L,
                             DateOfBirth = new DateTime(1996, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Jarosław",
@@ -276,7 +276,7 @@ namespace Server.Migrations
                         },
                         new
                         {
-                            EmployerId = 7L,
+                            EmployeeId = 7L,
                             CompanyId = 3L,
                             DateOfBirth = new DateTime(1995, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Tomasz",
@@ -285,7 +285,7 @@ namespace Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("server.Model.Data.User", b =>
+            modelBuilder.Entity("Server.Model.Data.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -354,13 +354,13 @@ namespace Server.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fefd4010-2bf2-49e5-af8f-6d5ededc8f33",
+                            ConcurrencyStamp = "be14e747-6d3e-4553-8270-6a0e0d1d2bf4",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHxC7oDrzOlNsCxGf4n5owDK1po8BYHE/Ew8SSa4li5FaABgKikg+EsAz8MpsEuoxw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENJpxf5jYybYHMHgT3srnAzCyMgekJ5Vm/Mlgwf+9YkEjBhX/cUZyzj84CJaGiSjcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "719872fc-9a02-4ab9-a1e3-8c74c86c2667",
+                            SecurityStamp = "8671e249-08db-4aa3-ba57-635cc5a897f6",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -377,7 +377,7 @@ namespace Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("server.Model.Data.User", null)
+                    b.HasOne("Server.Model.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -386,7 +386,7 @@ namespace Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("server.Model.Data.User", null)
+                    b.HasOne("Server.Model.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -401,7 +401,7 @@ namespace Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("server.Model.Data.User", null)
+                    b.HasOne("Server.Model.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -410,16 +410,16 @@ namespace Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("server.Model.Data.User", null)
+                    b.HasOne("Server.Model.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("server.Model.Data.Employer", b =>
+            modelBuilder.Entity("Server.Model.Data.Employee", b =>
                 {
-                    b.HasOne("server.Model.Data.Company", null)
+                    b.HasOne("Server.Model.Data.Company", null)
                         .WithMany("Employees")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)

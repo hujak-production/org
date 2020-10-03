@@ -10,7 +10,7 @@ namespace Server.Model.Data
         private readonly IPasswordHasher<User> _hasher;
 
         public DbSet<Company> Companies { get; set; }
-        public DbSet<Employer> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         public ApplicationDbContext(DbContextOptions options, IPasswordHasher<User> hasher)
             : base(options)
@@ -25,10 +25,10 @@ namespace Server.Model.Data
             modelBuilder.Entity<Company>()
                 .ToTable("Companies");
 
-            modelBuilder.Entity<Employer>()
-                .ToTable("Employers");
+            modelBuilder.Entity<Employee>()
+                .ToTable("Employees");
 
-            modelBuilder.Entity<Employer>()
+            modelBuilder.Entity<Employee>()
                 .Property(emp => emp.JobTitle)
                 .HasConversion<string>();
 
