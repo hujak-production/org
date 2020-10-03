@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 import { history } from './utils/history';
 import axios from 'axios';
@@ -23,24 +23,25 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
 
   const classes = useStyles();
+  const [data, setData] = useState(null);
+  const [open, setOpen] = React.useState(false);
 
   useEffect(() => {
     axios.get('https://192.168.0.220:44316/company')
       .then((response) => {
-        console.log(response);
+        setData(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       })
-  });
-
-  const [open, setOpen] = React.useState(false);
+  }, []);
 
   return (
     <Router history={ history }>
       <Container className={classes.container} fixed>
         <Header open={open} setOpen={setOpen}/>
-        <Sidebar open={open} setOpen={setOpen}/>
+        <Sidebar open={open} setOpen={setOpen} companies={data} history={history}/>
         <Box className={classes.content}>
           <Switch>
             <Route exact path='/' component={ Home }/>

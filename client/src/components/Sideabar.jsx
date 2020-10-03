@@ -27,12 +27,24 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     fontSize: '1em',
     fontWeight: 600,
-  }
+  },
+  button: {
+    textTransform: 'uppercase',
+    fontSize: '1em',
+    fontWeight: 600,
+  },
+  list: {
+    padding: 0
+  },
 }));
 
 const Sidebar = (props) => {
 
   const classes = useStyles();
+
+  const goToCompany = (companyId) => {
+    props.history.push(`/company/${companyId}`);
+  };
 
   return (
     <Drawer
@@ -44,7 +56,7 @@ const Sidebar = (props) => {
         paper: classes.drawerPaper,
       }}
     >
-      <List>
+      <List className={classes.list}>
         <ListItem button>
           <ListItemIcon><Add color='primary' className={classes.addIcon}/></ListItemIcon>
           <ListItemText>
@@ -52,6 +64,19 @@ const Sidebar = (props) => {
           </ListItemText>
         </ListItem>
         <Divider/>
+        {
+          props.companies ? props.companies.map(company => <ListItem
+            button
+            key={company.companyId}
+            onClick={() => {
+              goToCompany(company.companyId);
+              props.setOpen(false);
+            }}>
+            <ListItemText>
+              <Typography variant="h6" component='p' className={classes.button}>{company.name}</Typography>
+            </ListItemText>
+          </ListItem>) : null
+        }
       </List>
     </Drawer>
   );
