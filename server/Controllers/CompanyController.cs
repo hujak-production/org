@@ -35,6 +35,8 @@ namespace Server.Controllers
         [AllowAnonymous]
         public IEnumerable<CompanyDto> Index()
         {
+            _logger.LogInformation("Get all companies.");
+
             var companies = _context.Companies
                 .Include(company => company.Employees);
 
