@@ -20,7 +20,7 @@
     "server": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "company",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

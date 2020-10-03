@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Linq;
 using Newtonsoft.Json.Converters;
 using Server.Model.Data;
 using Server.Model.Services;
@@ -15,6 +16,8 @@ namespace Server
 {
     public class Startup
     {
+        private string reactSpecificOrigion = "ReactSpecificOrigions";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +28,21 @@ namespace Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var clientIp = Configuration.GetSection("ClientIP").GetChildren().Select(x => x.Value).ToArray();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: reactSpecificOrigion,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins(Configuration
+                                          .GetSection("ClientIP")
+                                          .GetChildren()
+                                          .Select(x => x.Value)
+                                          .ToArray());
+                                  });
+            });
+
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 var settings = options.SerializerSettings;
@@ -57,6 +75,8 @@ namespace Server
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(reactSpecificOrigion);
 
             app.UseAuthorization();
 
