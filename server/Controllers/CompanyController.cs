@@ -45,6 +45,19 @@ namespace Server.Controllers
             return compaiesDto;
         }
 
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<CompanyDto> Intex(long id)
+        {
+            var company = await _context.Companies
+                .Include(company => company.Employees)
+                .FirstAsync(x => x.CompanyId == id);
+
+            var companyDto = _mapper.Map<CompanyDto>(company);
+
+            return companyDto;
+        }
+
         [HttpPost("Create")]
         public async Task<ActionResult<object>> Create([FromBody] CompanyDto companyDto)
         {
