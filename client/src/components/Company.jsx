@@ -1,7 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Typography, Chip, makeStyles } from '@material-ui/core';
+import {
+  Typography,
+  Chip,
+  Divider,
+  makeStyles
+} from '@material-ui/core';
 import { Today } from '@material-ui/icons';
+import Employees from './Employees';
 
 /**
  * Component styles.
@@ -12,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textTransform: 'uppercase',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 15
   },
   date: {
     marginLeft: 15,
@@ -36,20 +43,24 @@ const Company = (props) => {
 
   if (company) {
     return (
-      <Typography
-        color='primary'
-        variant="h4"
-        component='h2'
-        className={ classes.title }
-      >
-        { company.name }
-        <Chip
-          icon={ <Today/> }
-          label={`${company.establishmentYear}`}
-          color="primary"
-          className={classes.date}
-        />
-      </Typography>
+      <div>
+        <Typography
+          color='primary'
+          variant='h4'
+          component='h2'
+          className={ classes.title }
+        >
+          { company.name }
+          <Chip
+            icon={ <Today/> }
+            label={ `${company.establishmentYear}` }
+            color='primary'
+            className={ classes.date }
+          />
+        </Typography>
+        <Divider/>
+        <Employees employees={ company.employees }/>
+      </div>
     );
   }
   else {
