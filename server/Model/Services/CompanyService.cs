@@ -26,8 +26,8 @@ namespace Server.Model.Services
             {
                 _logger.LogInformation("Search companies with a keyword: {0}", condition.Keyword);
 
-                //Selects a company from companies if the condition.
-                //Keyword matches with company.Name or with First or Last name of any employee from the company.
+                //Selects a company from companies if the condition keyword matches with company.
+                //Name or with First or Last name of any employee from the company.
                 companies = from company in companies
                             where EF.Functions.Like(company.Name, condition.Keyword) ||
                                   (from employee in company.Employees
