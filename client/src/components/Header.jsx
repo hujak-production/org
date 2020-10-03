@@ -8,12 +8,24 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import { Menu } from '@material-ui/icons';
 
+/**
+ * Component styles.
+ *
+ * @type {(props?: any) => ClassNameMap<string>}
+ */
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     justifyContent: 'space-between',
   }
 }));
 
+/**
+ * Header component.
+ *
+ * @param props
+ * @return React.ReactNode
+ * @constructor
+ */
 const Header = (props) => {
 
   const classes = useStyles();

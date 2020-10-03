@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { history } from './utils/history';
 import axios from 'axios';
 
@@ -8,7 +8,13 @@ import { Container, Box } from '@material-ui/core';
 import Home from './components/Home';
 import Sidebar from './components/Sideabar';
 import Header from './components/Header';
+import Company from './components/Company';
 
+/**
+ * Component styles.
+ *
+ * @type {(props?: any) => ClassNameMap<string>}
+ */
 const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: 'white',
@@ -20,12 +26,22 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+/**
+ * App component.
+ *
+ * @return React.ReactNode
+ * @constructor
+ */
 const App = () => {
 
   const classes = useStyles();
+
   const [data, setData] = useState(null);
   const [open, setOpen] = React.useState(false);
 
+  /**
+   * Fetch companies data from server.
+   */
   useEffect(() => {
     axios.get('https://192.168.0.220:44316/company')
       .then((response) => {
@@ -45,6 +61,7 @@ const App = () => {
         <Box className={classes.content}>
           <Switch>
             <Route exact path='/' component={ Home }/>
+            <Route exact path='/company/:id' component={ Company }/>
           </Switch>
         </Box>
       </Container>
